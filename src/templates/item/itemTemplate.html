@@ -1,0 +1,24 @@
+<div class="col-md-4 ">
+	<div class="row">
+		<div class="col-md-6 text-left">
+			<%= item.get('name') %>
+		</div>
+		<div class="col-md-6 text-right">
+			<%= item.get('price') %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-justify">
+			<%= item.get('description') + ' ' + item.get('savings') %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 text-left">
+			<%= item.get('store').name %>
+		</div>
+		<div class="col-md-6 text-right">
+			<%= new Date(item.get('date')).toDateString() %>
+		</div>
+	</div>
+</div>

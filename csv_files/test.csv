@@ -1,0 +1,3 @@
+name,description,price,unitPrice,imageURL
+Apple,Juicy apples,4/$5.00,1.25,https://s3.amazonaws.com/Grocr/apples.jpg
+Apricots,Quebec apricots,2/$1.00,0.50,https://s3.amazonaws.com/Grocr/apricots.jpg

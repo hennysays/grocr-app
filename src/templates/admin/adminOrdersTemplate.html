@@ -1,0 +1,37 @@
+<div id="greywrap">
+	<h2>Orders TEST</h2>
+
+	<div class="container" >
+		<div class="row">
+			<div class="col-md-4">
+				User
+			</div>
+			<div class="col-md-4">
+				Order Date
+			</div>
+			<div class="col-md-4">
+				Order
+			</div>
+		</div>
+
+
+<% _.each(orders, function(order,indx) { %>
+		<div class="row">
+			<div class="col-md-4">
+					<%= order.get('user').local.email %>
+			</div>
+			<div class="col-md-4">
+				<%= order.get('date') %>
+			</div>
+			<div class="col-md-4">
+				<% var basket = order.get('basket') %>
+				<% for(i=0;i<order.get('basket').length; i++) {%>
+					-<%=basket[i].name%><br>
+				<% } %>
+			</div>
+		</div>
+<% }); %>
+
+
+	</div>
+</div>

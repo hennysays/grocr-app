@@ -1,0 +1,86 @@
+.grid {
+	margin: 5px;
+	position: relative;
+}
+
+.grid img {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+.grid .details .info {
+	background-color: rgba(34,34,34,0.4);
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	padding: 5px;
+}
+
+#searchresults .grid img {
+	height: 200px;
+	width: 200px;
+	display: block;
+	position: relative;
+}
+
+.grid .details .add-to-basket {
+	background-color: rgba(34,34,34,0.4);
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	padding: 5px;
+}
+
+
+.grid .details .info h5 {
+	margin: 0;
+	padding-top: 0px;
+	color: white;
+	font-size: 22px;
+	text-align: left;
+}
+
+.grid .details .info h6 {
+	margin: 0;
+	padding-top: 0px;
+	color: white;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: left;
+}
+
+.grid .details .add-to-basket {
+	opacity: 0;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	transition: 0.2s;
+}
+
+.grid:hover .details .add-to-basket {
+	opacity: 1;
+	-webkit-transition: 0.2s;
+	-moz-transition: 0.2s;
+	transition: 0.2s;
+}
+
+.grid .details .add-to-basket a {
+	font-family: @font-regular;
+	color: white;
+	font-size: 18px;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+
+.carousel-indicators li {
+	border: none;
+	background-color:lightgrey;
+}
+
+.carousel-indicators li.active {
+	background-color:@green;
+}
+
+
+

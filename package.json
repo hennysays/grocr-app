@@ -1,0 +1,49 @@
+{
+  "name": "grocer-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "~3.4.8",
+    "jade": "~1.1.5",
+    "mongoose": "~3.8.7",
+    "logfmt": "~0.20.0",
+    "underscore": "~1.6.0",
+    "csv": "~0.3.7",
+    "async": "~0.2.10",
+    "cheerio": "~0.13.1",
+    "request": "~2.34.0",
+    "newrelic": "~1.4.0",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "passport-facebook": "~1.0.3",
+    "connect-flash": "~0.1.1",
+    "bcrypt-nodejs": "0.0.3",
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "jshint-stylish": "~0.1.5",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-less": "~0.11.0",
+    "grunt-contrib-requirejs": "~0.4.3",
+    "grunt-contrib-htmlmin": "~0.2.0"
+  },
+  "description": "Grocer App Backend",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hennysays/grocer-app"
+  },
+  "keywords": [
+    "grocer",
+    "heroku"
+  ],
+  "author": "Henry Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hennysays/grocer-app/issues"
+  }
+}

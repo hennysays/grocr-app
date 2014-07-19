@@ -1,0 +1,45 @@
+<div id="greywrap">
+	<h2>Analytics TEST</h2>
+
+	<div class="container" >
+		<div class="row">
+			<div class="col-md-3">
+				User
+			</div>
+			<div class="col-md-3">
+				Admin (Y/N)?
+			</div>
+			<div class="col-md-3">
+				# of logins, (Last Login Date)
+			</div>
+			<div class="col-md-3">
+				# of orders, (Last Order Date)
+			</div>
+		</div>
+
+
+<% _.each(users, function(user,indx) { %>
+		<div class="row">
+			<div class="col-md-3">
+				<%= user.get('local').email %>
+			</div>
+			<div class="col-md-3">
+				<% test = user.get('isAdmin') ? 'Yes':'No'; %>
+				<%= test %>
+			</div>
+			<div class="col-md-3">
+				<%= user.get('sessions').length %>,
+				<% if(user.get('sessions')[user.get('sessions').length-1] != null) {
+					%>
+				<%= new Date(user.get('sessions')[user.get('sessions').length-1]).toDateString() %>
+				<%}%>
+			</div>
+			<div class="col-md-3">
+				TODO
+			</div>
+		</div>
+<% }); %>
+
+
+	</div>
+</div>

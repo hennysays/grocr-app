@@ -1,0 +1,88 @@
+<div class="greywrap">
+	<div class="text-block center">
+		<h4>Basket</h4>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-3">	
+				Item
+			</div>
+			<div class="col-xs-3">	
+				Unit price
+			</div>
+			<div class="col-xs-2">	
+				Quantity
+			</div>
+			<div class="col-xs-3">	
+				Price
+			</div>
+		</div>
+
+		<% if(items.length==0) {%>
+		<p class="pull-center">0 items in basket</p>
+		<% } else { %>
+		<% _.each(items, function(item,indx) { %>
+		<div class="row">
+			<div class="col-xs-3">	
+				<%= item.get('name') %>
+			</div>
+			<div class="col-xs-3">	
+				<%= item.get('price') %> 
+			</div>
+			<div class="col-xs-2">	
+				<input type="number" data-id="<%= indx %>" class="form-control quantity-item" value="<%= item.get('quantity') %>" min="1" step="1">
+			</div>
+			<div class="col-xs-3">	
+				<%= (item.get('unitPrice')*item.get('quantity')).toFixed(2) %>  $
+			</div>
+			<div class="col-xs-1">	
+				<button type="button" data-id="<%= indx %>" class="btn btn-default remove-item"><span class="icon-remove"></span></button>
+			</div>
+		</div>
+		<% }); } %>
+	</div>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-10 text-right">
+				<% var totalQty = _.reduce(items,function(prev,nextval){
+					 return prev+nextval.get("quantity");
+				},0); %>
+				Subtotal (<%=totalQty %> item<% if(totalQty!=1){ %>s<% } %>):
+			</div>
+			<div class="col-xs-2 text-right">	
+				<% var totalCost = _.reduce(items,function(prev,nextval){
+	 				return prev+nextval.get("quantity")*nextval.get("unitPrice");
+				},0); %>
+				<%= totalCost.toFixed(2) %> $
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-10 text-right">	
+				Delivery fee:
+			</div>
+			<div class="col-xs-2 text-right">	
+				<% var deliveryFee = 0; if(items.length>0) deliveryFee=4; %>
+				<%=deliveryFee.toFixed(2) %> $
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-10 text-right">
+				Total:
+			</div>
+			<div class="col-xs-2 text-right">
+				<% totalWithDelivery=totalCost+deliveryFee; %>
+				<%= totalWithDelivery.toFixed(2) %> $
+			</div>
+		</div>
+		<textarea id="memo" class="form-control" rows="5" placeholder="Memo"></textarea>
+		<button type="button" id="order" class="btn btn-default pull-right">Order</button>
+	</div>
+</div>
+
+
+<div id="completeinfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+

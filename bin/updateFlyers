@@ -1,0 +1,68 @@
+#! /usr/bin/env node
+
+var mongoose = require("mongoose");
+var async = require("async");
+var metro = require('./metro');
+var provigo = require('./provigo');
+var loblaws = require('./loblaws');
+var pharmaprix = require('./pharmaprix');
+var request = require('request');
+
+var uristring = 
+process.env.MONGOLAB_URI || 
+process.env.MONGOHQ_URL || 
+'mongodb://localhost/mydb';
+
+mongoose.connect(uristring, function (err, res) {
+    if (err) { 
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    }
+    else {
+		console.log ('Succeeded connected to: ' + uristring);
+		async.parallel([
+			function(callback){
+				provigo.run(callback)
+			},
+			function(callback){
+				loblaws.run(callback)
+			},
+			function(callback){
+				metro.run(callback);
+			},
+			function(callback){
+				pharmaprix.run(callback)
+			}],
+			function(err, results){
+				console.log("FINISHED UPDATING");
+
+				// request.post(
+				// 	'https://android.googleapis.com/gcm/send',
+				// 	{ form: { key: 'value'} },
+				// 	function (err, res, body) {
+				// 		if(!err && res.statusCode == 200) {
+				// 			console.log(body);
+				// 		}
+				// 	}
+
+
+
+
+				// );
+
+
+
+				process.exit();
+			}
+		);
+	}
+});
+
+// If the Node process ends, close the Mongoose connection
+process.on('SIGINT', function() {
+    mongoose.connection.close(function() {
+      console.log('\nMongoose default connection disconnected through app termination');
+      process.exit(0);
+    });
+});
+
+
